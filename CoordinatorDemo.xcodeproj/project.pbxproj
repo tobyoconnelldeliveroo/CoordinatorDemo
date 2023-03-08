@@ -12,6 +12,11 @@
 		F131EFB929B8F32A0057C9DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFB829B8F32A0057C9DA /* ViewController.swift */; };
 		F131EFBE29B8F32B0057C9DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F131EFBD29B8F32B0057C9DA /* Assets.xcassets */; };
 		F131EFC129B8F32B0057C9DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F131EFBF29B8F32B0057C9DA /* LaunchScreen.storyboard */; };
+		F131EFC929B8F4140057C9DA /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFC829B8F4140057C9DA /* BasicView.swift */; };
+		F131EFCB29B8FDB50057C9DA /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFCA29B8FDB50057C9DA /* Builder.swift */; };
+		F131EFCE29B8FDE40057C9DA /* NSLayoutConstraint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFCD29B8FDE40057C9DA /* NSLayoutConstraint+Extensions.swift */; };
+		F131EFD029B902EE0057C9DA /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFCF29B902ED0057C9DA /* UILabel.swift */; };
+		F131EFD229B903400057C9DA /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFD129B903400057C9DA /* UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		F131EFBD29B8F32B0057C9DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F131EFC029B8F32B0057C9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F131EFC229B8F32B0057C9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F131EFC829B8F4140057C9DA /* BasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
+		F131EFCA29B8FDB50057C9DA /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
+		F131EFCD29B8FDE40057C9DA /* NSLayoutConstraint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Extensions.swift"; sourceTree = "<group>"; };
+		F131EFCF29B902ED0057C9DA /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		F131EFD129B903400057C9DA /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +70,21 @@
 				F131EFBD29B8F32B0057C9DA /* Assets.xcassets */,
 				F131EFBF29B8F32B0057C9DA /* LaunchScreen.storyboard */,
 				F131EFC229B8F32B0057C9DA /* Info.plist */,
+				F131EFCC29B8FDC20057C9DA /* SharedUI */,
 			);
 			path = CoordinatorDemo;
+			sourceTree = "<group>";
+		};
+		F131EFCC29B8FDC20057C9DA /* SharedUI */ = {
+			isa = PBXGroup;
+			children = (
+				F131EFC829B8F4140057C9DA /* BasicView.swift */,
+				F131EFCA29B8FDB50057C9DA /* Builder.swift */,
+				F131EFCD29B8FDE40057C9DA /* NSLayoutConstraint+Extensions.swift */,
+				F131EFCF29B902ED0057C9DA /* UILabel.swift */,
+				F131EFD129B903400057C9DA /* UIButton.swift */,
+			);
+			path = SharedUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +158,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F131EFB929B8F32A0057C9DA /* ViewController.swift in Sources */,
+				F131EFCE29B8FDE40057C9DA /* NSLayoutConstraint+Extensions.swift in Sources */,
+				F131EFD029B902EE0057C9DA /* UILabel.swift in Sources */,
+				F131EFD229B903400057C9DA /* UIButton.swift in Sources */,
 				F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */,
 				F131EFB729B8F32A0057C9DA /* SceneDelegate.swift in Sources */,
+				F131EFC929B8F4140057C9DA /* BasicView.swift in Sources */,
+				F131EFCB29B8FDB50057C9DA /* Builder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
