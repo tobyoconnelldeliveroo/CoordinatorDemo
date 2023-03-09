@@ -5,9 +5,6 @@ protocol YellowCoordinating: AnyObject {
 }
 
 class YellowCoordinator: Coordinator, YellowCoordinating {
-    weak var parentCoordinator: Coordinator?
-    var childCoordinators: [Coordinator] = []
-    
     private weak var dismisser: Dismissing?
     private weak var navigationController: UINavigationController?
     

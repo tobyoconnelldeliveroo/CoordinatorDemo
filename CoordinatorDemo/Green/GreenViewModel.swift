@@ -1,11 +1,7 @@
 struct GreenViewModel {
-    private weak var coordinator: (Coordinator & GreenCoordinating)?
+    private let coordinator: GreenCoordinating
     
-    init(coordinator: Coordinator & GreenCoordinating) {
+    init(coordinator: GreenCoordinating) {
         self.coordinator = coordinator
-    }
-    
-    func didFinish() {
-        coordinator?.didFinish()
     }
 }

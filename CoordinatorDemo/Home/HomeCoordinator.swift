@@ -6,9 +6,6 @@ protocol HomeCoordinating: AnyObject {
 }
 
 class HomeCoordinator: Coordinator, HomeCoordinating {
-    weak var parentCoordinator: Coordinator?
-    var childCoordinators: [Coordinator] = []
-    
     private weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -25,13 +22,11 @@ class HomeCoordinator: Coordinator, HomeCoordinating {
         let yellowNavigationController = UINavigationController()
         let coordinator = YellowCoordinator(navigationController: yellowNavigationController, dismisser: viewController)
         coordinator.start()
-        store(coordinator: coordinator)
         viewController?.present(yellowNavigationController, animated: true)
     }
     
     func showGreen() {
         let coordinator = GreenCoordinator(navigationController: navigationController)
         coordinator.start()
-        store(coordinator: coordinator)
     }
 }

@@ -3,9 +3,6 @@ import UIKit
 protocol GreenCoordinating: AnyObject {}
 
 class GreenCoordinator: Coordinator, GreenCoordinating {
-    weak var parentCoordinator: Coordinator?
-    var childCoordinators: [Coordinator] = []
-    
     private weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {

@@ -15,9 +15,5 @@ class YellowViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    deinit {
-        viewModel.didFinish()
-    }
 }
 
