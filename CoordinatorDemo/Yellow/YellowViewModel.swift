@@ -1,11 +1,15 @@
 struct YellowViewModel {
-    private weak var coordinator: YellowCoordinating?
+    private weak var coordinator: (Coordinator & YellowCoordinating)?
     
-    init(coordinator: YellowCoordinating) {
+    init(coordinator: Coordinator & YellowCoordinating) {
         self.coordinator = coordinator
     }
     
     func close() {
         coordinator?.dismiss()
+    }
+    
+    func didFinish() {
+        coordinator?.didFinish()
     }
 }

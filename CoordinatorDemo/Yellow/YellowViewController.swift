@@ -1,7 +1,10 @@
 import UIKit
 
 class YellowViewController: UIViewController {
+    let viewModel: YellowViewModel
+    
     init(viewModel: YellowViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         title = "Yellow"
         let content = UILabel.body(text: "This screen is controlled by YellowCoordinator")
@@ -11,6 +14,10 @@ class YellowViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        viewModel.didFinish()
     }
 }
 
