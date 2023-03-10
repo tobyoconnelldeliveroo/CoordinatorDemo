@@ -6,12 +6,7 @@ class HomeViewController: UIViewController {
         title = "Home"
         let content = UILabel.body(text: "This screen is controlled by HomeCoordinator")
         let showGreenButton = UIButton.primary(text: "Show Green", action: viewModel.showGreen)
-        let showYellowButton = UIButton.primary(
-            text: "Show Yellow",
-            action: { [weak self] in
-                viewModel.showYellow(on: self)
-            }
-        )
+        let showYellowButton = UIButton.primary(text: "Show Yellow", action: viewModel.showYellow)
         view = BasicView(backgroundColor: .systemBackground, scrollingContent: content, footerContent: showGreenButton, showYellowButton)
     }
     

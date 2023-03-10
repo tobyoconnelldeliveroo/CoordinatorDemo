@@ -1,11 +1,6 @@
 import UIKit
 
-protocol HomeCoordinating: AnyObject {
-    func showYellow(on viewController: UIViewController?)
-    func showGreen()
-}
-
-class HomeCoordinator: Coordinator, HomeCoordinating {
+class HomeCoordinator: Coordinator {
     private weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -13,19 +8,31 @@ class HomeCoordinator: Coordinator, HomeCoordinating {
     }
     
     func start() {
-        let viewModel = HomeViewModel(coordinator: self)
+        var showYellow: (() -> Void)?
+        let viewModel = HomeViewModel(
+            showGreen: showGreen,
+            showYellow: { showYellow?() }
+        )
         let viewController = HomeViewController(viewModel: viewModel)
+        showYellow = { [weak viewController] in
+            self.showYellow(on: viewController)
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
     
     func showYellow(on viewController: UIViewController?) {
         let yellowNavigationController = UINavigationController()
-        let coordinator = YellowCoordinator(navigationController: yellowNavigationController, dismisser: viewController)
+        let coordinator = YellowCoordinator(
+            navigationController: yellowNavigationController,
+            close: { [weak viewController] in
+                viewController?.dismiss(animated: true)
+            }
+        )
         coordinator.start()
         viewController?.present(yellowNavigationController, animated: true)
     }
     
-    func showGreen() {
+    private func showGreen() {
         let coordinator = GreenCoordinator(navigationController: navigationController)
         coordinator.start()
     }

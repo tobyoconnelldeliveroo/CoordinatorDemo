@@ -26,7 +26,6 @@
 		F131EFE529B90BDE0057C9DA /* YellowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE229B90B650057C9DA /* YellowCoordinator.swift */; };
 		F131EFE629B90BE20057C9DA /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE329B90B650057C9DA /* YellowViewController.swift */; };
 		F131EFE729B90BE40057C9DA /* YellowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE429B90B650057C9DA /* YellowViewModel.swift */; };
-		F131EFE929B90C8F0057C9DA /* Dismissing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE829B90C8F0057C9DA /* Dismissing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +50,6 @@
 		F131EFE229B90B650057C9DA /* YellowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowCoordinator.swift; sourceTree = "<group>"; };
 		F131EFE329B90B650057C9DA /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		F131EFE429B90B650057C9DA /* YellowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewModel.swift; sourceTree = "<group>"; };
-		F131EFE829B90C8F0057C9DA /* Dismissing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismissing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 				F131EFCD29B8FDE40057C9DA /* NSLayoutConstraint+Extensions.swift */,
 				F131EFCF29B902ED0057C9DA /* UILabel.swift */,
 				F131EFD129B903400057C9DA /* UIButton.swift */,
-				F131EFE829B90C8F0057C9DA /* Dismissing.swift */,
 			);
 			path = SharedUI;
 			sourceTree = "<group>";
@@ -222,7 +219,6 @@
 				F131EFD229B903400057C9DA /* UIButton.swift in Sources */,
 				F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */,
 				F131EFDE29B90A840057C9DA /* GreenCoordinator.swift in Sources */,
-				F131EFE929B90C8F0057C9DA /* Dismissing.swift in Sources */,
 				F131EFB729B8F32A0057C9DA /* SceneDelegate.swift in Sources */,
 				F131EFDC29B909840057C9DA /* GreenViewController.swift in Sources */,
 				F131EFE029B90AA90057C9DA /* GreenViewModel.swift in Sources */,

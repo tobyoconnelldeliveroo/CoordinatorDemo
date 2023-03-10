@@ -1,25 +1,17 @@
 import UIKit
 
-protocol YellowCoordinating: AnyObject {
-    func dismiss()
-}
-
-class YellowCoordinator: Coordinator, YellowCoordinating {
-    private weak var dismisser: Dismissing?
+class YellowCoordinator: Coordinator {
     private weak var navigationController: UINavigationController?
+    private var close: () -> Void
     
-    init(navigationController: UINavigationController?, dismisser: Dismissing?) {
+    init(navigationController: UINavigationController?, close: @escaping () -> Void) {
         self.navigationController = navigationController
-        self.dismisser = dismisser
+        self.close = close
     }
     
     func start() {
-        let viewModel = YellowViewModel(coordinator: self)
+        let viewModel = YellowViewModel(close: close)
         let viewController = YellowViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    func dismiss() {
-        dismisser?.dismiss(animated: true)
     }
 }

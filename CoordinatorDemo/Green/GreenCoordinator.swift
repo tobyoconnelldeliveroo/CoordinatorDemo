@@ -1,8 +1,6 @@
 import UIKit
 
-protocol GreenCoordinating: AnyObject {}
-
-class GreenCoordinator: Coordinator, GreenCoordinating {
+class GreenCoordinator: Coordinator {
     private weak var navigationController: UINavigationController?
     
     init(navigationController: UINavigationController?) {
@@ -10,7 +8,7 @@ class GreenCoordinator: Coordinator, GreenCoordinating {
     }
     
     func start() {
-        let viewModel = GreenViewModel(coordinator: self)
+        let viewModel = GreenViewModel()
         let viewController = GreenViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
