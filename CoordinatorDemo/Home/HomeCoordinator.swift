@@ -1,10 +1,16 @@
 import UIKit
 
-class HomeCoordinator: Coordinator {
-    private weak var navigationController: UINavigationController?
+class HomeCoordinator<
+    NavigationController: AnyObject & NavigationControlling<ViewController>,
+    ViewController: AnyObject & ViewControlling<ViewController>,
+    ScreenBuilder: HomeScreenBuilding<NavigationController, ViewController>
+>: Coordinator {
+    private weak var navigationController: NavigationController?
+    private let screenBuilder: ScreenBuilder
     
-    init(navigationController: UINavigationController?) {
+    init(navigationController: NavigationController?, screenBuilder: ScreenBuilder) {
         self.navigationController = navigationController
+        self.screenBuilder = screenBuilder
     }
     
     func start() {
@@ -13,27 +19,23 @@ class HomeCoordinator: Coordinator {
             showGreen: showGreen,
             showYellow: { showYellow?() }
         )
-        let viewController = HomeViewController(viewModel: viewModel)
-        showYellow = { [weak viewController] in
-            self.showYellow(on: viewController)
+        let screen = screenBuilder.buildHomeScreen(viewModel: viewModel)
+        showYellow = { [weak screen] in
+            self.showYellow(on: screen)
         }
-        navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(screen)
     }
     
-    func showYellow(on viewController: UIViewController?) {
-        let yellowNavigationController = UINavigationController()
-        let coordinator = YellowCoordinator(
-            navigationController: yellowNavigationController,
+    private func showYellow(on viewController: ViewController?) {
+        let navigationController = screenBuilder.buildYellowCoordinator(
             close: { [weak viewController] in
                 viewController?.dismiss(animated: true)
             }
         )
-        coordinator.start()
-        viewController?.present(yellowNavigationController, animated: true)
+        viewController?.present(navigationController, animated: true)
     }
     
     private func showGreen() {
-        let coordinator = GreenCoordinator(navigationController: navigationController)
-        coordinator.start()
+        screenBuilder.buildGreenCoordinator(navigationController: navigationController)
     }
 }

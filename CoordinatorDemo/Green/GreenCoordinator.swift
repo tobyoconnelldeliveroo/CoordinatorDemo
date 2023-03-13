@@ -1,15 +1,22 @@
 import UIKit
 
-class GreenCoordinator: Coordinator {
-    private weak var navigationController: UINavigationController?
+
+class GreenCoordinator<
+    NavigationController: AnyObject & NavigationControlling<ViewController>,
+    ViewController: AnyObject & ViewControlling<ViewController>,
+    ScreenBuilder: GreenScreenBuilding<ViewController>
+>: Coordinator {
+    private weak var navigationController: NavigationController?
+    private let screenBuilder: ScreenBuilder
     
-    init(navigationController: UINavigationController?) {
+    init(navigationController: NavigationController?, screenBuilder: ScreenBuilder) {
         self.navigationController = navigationController
+        self.screenBuilder = screenBuilder
     }
     
     func start() {
         let viewModel = GreenViewModel()
-        let viewController = GreenViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
+        let screen = screenBuilder.buildGreenScreen(viewModel: viewModel)
+        navigationController?.pushViewController(screen)
     }
 }

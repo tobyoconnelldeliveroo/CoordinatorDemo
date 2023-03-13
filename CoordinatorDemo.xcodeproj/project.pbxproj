@@ -26,6 +26,12 @@
 		F131EFE529B90BDE0057C9DA /* YellowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE229B90B650057C9DA /* YellowCoordinator.swift */; };
 		F131EFE629B90BE20057C9DA /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE329B90B650057C9DA /* YellowViewController.swift */; };
 		F131EFE729B90BE40057C9DA /* YellowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE429B90B650057C9DA /* YellowViewModel.swift */; };
+		F1ED54AD29BF8C6900706665 /* GreenScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54AC29BF8C6900706665 /* GreenScreenBuilder.swift */; };
+		F1ED54B229BF8CA300706665 /* Pushing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54AF29BF8CA300706665 /* Pushing.swift */; };
+		F1ED54B329BF8CA300706665 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B029BF8CA300706665 /* Extensions.swift */; };
+		F1ED54B429BF8CA300706665 /* Presenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B129BF8CA300706665 /* Presenting.swift */; };
+		F1ED54B629BF8CC500706665 /* HomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */; };
+		F1ED54B829BF8D1900706665 /* YellowScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		F131EFE229B90B650057C9DA /* YellowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowCoordinator.swift; sourceTree = "<group>"; };
 		F131EFE329B90B650057C9DA /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		F131EFE429B90B650057C9DA /* YellowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewModel.swift; sourceTree = "<group>"; };
+		F1ED54AC29BF8C6900706665 /* GreenScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenScreenBuilder.swift; sourceTree = "<group>"; };
+		F1ED54AF29BF8CA300706665 /* Pushing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pushing.swift; sourceTree = "<group>"; };
+		F1ED54B029BF8CA300706665 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		F1ED54B129BF8CA300706665 /* Presenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenting.swift; sourceTree = "<group>"; };
+		F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenBuilder.swift; sourceTree = "<group>"; };
+		F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowScreenBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,7 @@
 		F131EFB329B8F32A0057C9DA /* CoordinatorDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F1ED54AE29BF8CA300706665 /* Navigation  */,
 				F131EFD629B9074E0057C9DA /* Coordinator.swift */,
 				F131EFB429B8F32A0057C9DA /* AppDelegate.swift */,
 				F131EFB629B8F32A0057C9DA /* SceneDelegate.swift */,
@@ -114,6 +127,7 @@
 				F131EFB829B8F32A0057C9DA /* HomeViewController.swift */,
 				F131EFD429B907320057C9DA /* HomeCoordinator.swift */,
 				F131EFD829B908230057C9DA /* HomeViewModel.swift */,
+				F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -124,6 +138,7 @@
 				F131EFDD29B90A840057C9DA /* GreenCoordinator.swift */,
 				F131EFDB29B909840057C9DA /* GreenViewController.swift */,
 				F131EFDF29B90AA90057C9DA /* GreenViewModel.swift */,
+				F1ED54AC29BF8C6900706665 /* GreenScreenBuilder.swift */,
 			);
 			path = Green;
 			sourceTree = "<group>";
@@ -134,8 +149,19 @@
 				F131EFE229B90B650057C9DA /* YellowCoordinator.swift */,
 				F131EFE329B90B650057C9DA /* YellowViewController.swift */,
 				F131EFE429B90B650057C9DA /* YellowViewModel.swift */,
+				F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */,
 			);
 			path = Yellow;
+			sourceTree = "<group>";
+		};
+		F1ED54AE29BF8CA300706665 /* Navigation  */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED54AF29BF8CA300706665 /* Pushing.swift */,
+				F1ED54B029BF8CA300706665 /* Extensions.swift */,
+				F1ED54B129BF8CA300706665 /* Presenting.swift */,
+			);
+			path = "Navigation ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,12 +242,18 @@
 				F131EFD729B9074E0057C9DA /* Coordinator.swift in Sources */,
 				F131EFD529B907320057C9DA /* HomeCoordinator.swift in Sources */,
 				F131EFD029B902EE0057C9DA /* UILabel.swift in Sources */,
+				F1ED54B229BF8CA300706665 /* Pushing.swift in Sources */,
 				F131EFD229B903400057C9DA /* UIButton.swift in Sources */,
+				F1ED54AD29BF8C6900706665 /* GreenScreenBuilder.swift in Sources */,
 				F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */,
 				F131EFDE29B90A840057C9DA /* GreenCoordinator.swift in Sources */,
+				F1ED54B429BF8CA300706665 /* Presenting.swift in Sources */,
 				F131EFB729B8F32A0057C9DA /* SceneDelegate.swift in Sources */,
 				F131EFDC29B909840057C9DA /* GreenViewController.swift in Sources */,
+				F1ED54B329BF8CA300706665 /* Extensions.swift in Sources */,
+				F1ED54B829BF8D1900706665 /* YellowScreenBuilder.swift in Sources */,
 				F131EFE029B90AA90057C9DA /* GreenViewModel.swift in Sources */,
+				F1ED54B629BF8CC500706665 /* HomeScreenBuilder.swift in Sources */,
 				F131EFC929B8F4140057C9DA /* BasicView.swift in Sources */,
 				F131EFE529B90BDE0057C9DA /* YellowCoordinator.swift in Sources */,
 				F131EFCB29B8FDB50057C9DA /* Builder.swift in Sources */,
