@@ -32,7 +32,25 @@
 		F1ED54B429BF8CA300706665 /* Presenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B129BF8CA300706665 /* Presenting.swift */; };
 		F1ED54B629BF8CC500706665 /* HomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */; };
 		F1ED54B829BF8D1900706665 /* YellowScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */; };
+		F1ED54CF29BF8EB400706665 /* YellowCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54C629BF8EB400706665 /* YellowCoordinatorTests.swift */; };
+		F1ED54D029BF8EB400706665 /* MockGreenScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54C829BF8EB400706665 /* MockGreenScreenBuilder.swift */; };
+		F1ED54D129BF8EB400706665 /* MockYellowScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54C929BF8EB400706665 /* MockYellowScreenBuilder.swift */; };
+		F1ED54D229BF8EB400706665 /* MockPushing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CA29BF8EB400706665 /* MockPushing.swift */; };
+		F1ED54D329BF8EB400706665 /* MockPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CB29BF8EB400706665 /* MockPresenting.swift */; };
+		F1ED54D429BF8EB400706665 /* MockHomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */; };
+		F1ED54D529BF8EB400706665 /* GreenCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CD29BF8EB400706665 /* GreenCoordinatorTests.swift */; };
+		F1ED54D629BF8EB400706665 /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CE29BF8EB400706665 /* HomeCoordinatorTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1ED54C129BF8E9A00706665 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F131EFA929B8F32A0057C9DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F131EFB029B8F32A0057C9DA;
+			remoteInfo = CoordinatorDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		F131EFB129B8F32A0057C9DA /* CoordinatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,10 +80,26 @@
 		F1ED54B129BF8CA300706665 /* Presenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenting.swift; sourceTree = "<group>"; };
 		F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenBuilder.swift; sourceTree = "<group>"; };
 		F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowScreenBuilder.swift; sourceTree = "<group>"; };
+		F1ED54BD29BF8E9A00706665 /* CoordinatorDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1ED54C629BF8EB400706665 /* YellowCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowCoordinatorTests.swift; sourceTree = "<group>"; };
+		F1ED54C829BF8EB400706665 /* MockGreenScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGreenScreenBuilder.swift; sourceTree = "<group>"; };
+		F1ED54C929BF8EB400706665 /* MockYellowScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockYellowScreenBuilder.swift; sourceTree = "<group>"; };
+		F1ED54CA29BF8EB400706665 /* MockPushing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPushing.swift; sourceTree = "<group>"; };
+		F1ED54CB29BF8EB400706665 /* MockPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPresenting.swift; sourceTree = "<group>"; };
+		F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHomeScreenBuilder.swift; sourceTree = "<group>"; };
+		F1ED54CD29BF8EB400706665 /* GreenCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenCoordinatorTests.swift; sourceTree = "<group>"; };
+		F1ED54CE29BF8EB400706665 /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F131EFAE29B8F32A0057C9DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1ED54BA29BF8E9A00706665 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -79,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				F131EFB329B8F32A0057C9DA /* CoordinatorDemo */,
+				F1ED54BE29BF8E9A00706665 /* CoordinatorDemoTests */,
 				F131EFB229B8F32A0057C9DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F131EFB129B8F32A0057C9DA /* CoordinatorDemo.app */,
+				F1ED54BD29BF8E9A00706665 /* CoordinatorDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -164,6 +200,29 @@
 			path = "Navigation ";
 			sourceTree = "<group>";
 		};
+		F1ED54BE29BF8E9A00706665 /* CoordinatorDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED54CE29BF8EB400706665 /* HomeCoordinatorTests.swift */,
+				F1ED54C629BF8EB400706665 /* YellowCoordinatorTests.swift */,
+				F1ED54CD29BF8EB400706665 /* GreenCoordinatorTests.swift */,
+				F1ED54C729BF8EB400706665 /* Mocks */,
+			);
+			path = CoordinatorDemoTests;
+			sourceTree = "<group>";
+		};
+		F1ED54C729BF8EB400706665 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				F1ED54C829BF8EB400706665 /* MockGreenScreenBuilder.swift */,
+				F1ED54C929BF8EB400706665 /* MockYellowScreenBuilder.swift */,
+				F1ED54CA29BF8EB400706665 /* MockPushing.swift */,
+				F1ED54CB29BF8EB400706665 /* MockPresenting.swift */,
+				F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,6 +243,24 @@
 			productReference = F131EFB129B8F32A0057C9DA /* CoordinatorDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F1ED54BC29BF8E9A00706665 /* CoordinatorDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1ED54C529BF8E9A00706665 /* Build configuration list for PBXNativeTarget "CoordinatorDemoTests" */;
+			buildPhases = (
+				F1ED54B929BF8E9A00706665 /* Sources */,
+				F1ED54BA29BF8E9A00706665 /* Frameworks */,
+				F1ED54BB29BF8E9A00706665 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F1ED54C229BF8E9A00706665 /* PBXTargetDependency */,
+			);
+			name = CoordinatorDemoTests;
+			productName = CoordinatorDemoTests;
+			productReference = F1ED54BD29BF8E9A00706665 /* CoordinatorDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +273,11 @@
 				TargetAttributes = {
 					F131EFB029B8F32A0057C9DA = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					F1ED54BC29BF8E9A00706665 = {
+						CreatedOnToolsVersion = 14.1;
+						LastSwiftMigration = 1410;
+						TestTargetID = F131EFB029B8F32A0057C9DA;
 					};
 				};
 			};
@@ -213,6 +295,7 @@
 			projectRoot = "";
 			targets = (
 				F131EFB029B8F32A0057C9DA /* CoordinatorDemo */,
+				F1ED54BC29BF8E9A00706665 /* CoordinatorDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -224,6 +307,13 @@
 			files = (
 				F131EFC129B8F32B0057C9DA /* LaunchScreen.storyboard in Resources */,
 				F131EFBE29B8F32B0057C9DA /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1ED54BB29BF8E9A00706665 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +350,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1ED54B929BF8E9A00706665 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1ED54D229BF8EB400706665 /* MockPushing.swift in Sources */,
+				F1ED54D129BF8EB400706665 /* MockYellowScreenBuilder.swift in Sources */,
+				F1ED54D429BF8EB400706665 /* MockHomeScreenBuilder.swift in Sources */,
+				F1ED54D329BF8EB400706665 /* MockPresenting.swift in Sources */,
+				F1ED54D029BF8EB400706665 /* MockGreenScreenBuilder.swift in Sources */,
+				F1ED54D629BF8EB400706665 /* HomeCoordinatorTests.swift in Sources */,
+				F1ED54D529BF8EB400706665 /* GreenCoordinatorTests.swift in Sources */,
+				F1ED54CF29BF8EB400706665 /* YellowCoordinatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1ED54C229BF8E9A00706665 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F131EFB029B8F32A0057C9DA /* CoordinatorDemo */;
+			targetProxy = F1ED54C129BF8E9A00706665 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F131EFBF29B8F32B0057C9DA /* LaunchScreen.storyboard */ = {
@@ -442,6 +555,55 @@
 			};
 			name = Release;
 		};
+		F1ED54C329BF8E9A00706665 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4W63KJQ97;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oconnell.toby.CoordinatorDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoordinatorDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoordinatorDemo";
+			};
+			name = Debug;
+		};
+		F1ED54C429BF8E9A00706665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A4W63KJQ97;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = oconnell.toby.CoordinatorDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoordinatorDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoordinatorDemo";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -459,6 +621,15 @@
 			buildConfigurations = (
 				F131EFC629B8F32B0057C9DA /* Debug */,
 				F131EFC729B8F32B0057C9DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1ED54C529BF8E9A00706665 /* Build configuration list for PBXNativeTarget "CoordinatorDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1ED54C329BF8E9A00706665 /* Debug */,
+				F1ED54C429BF8E9A00706665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
