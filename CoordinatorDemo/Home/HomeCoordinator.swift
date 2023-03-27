@@ -28,6 +28,9 @@ class HomeCoordinator<
     
     private func showYellow(on viewController: ViewController?) {
         let navigationController = screenBuilder.buildYellowCoordinator(
+            showGreen: {
+                viewController?.dismiss(animated: true, completion: self.showGreen)
+            },
             close: { [weak viewController] in
                 viewController?.dismiss(animated: true)
             }

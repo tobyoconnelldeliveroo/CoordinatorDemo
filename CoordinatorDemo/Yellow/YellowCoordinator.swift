@@ -8,15 +8,22 @@ class YellowCoordinator<
     private weak var navigationController: NavigationController?
     private let screenBuilder: ScreenBuilder
     private let close: () -> Void
-    
-    init(navigationController: NavigationController?, screenBuilder: ScreenBuilder, close: @escaping () -> Void) {
+    private let showGreen: () -> Void
+
+    init(
+        navigationController: NavigationController?,
+        screenBuilder: ScreenBuilder,
+        showGreen: @escaping () -> Void,
+        close: @escaping () -> Void
+    ) {
         self.navigationController = navigationController
         self.screenBuilder = screenBuilder
+        self.showGreen = showGreen
         self.close = close
     }
     
     func start() {
-        let viewModel = YellowViewModel(close: close)
+        let viewModel = YellowViewModel(showGreen: showGreen, close: close)
         let screen = screenBuilder.buildYellowScreen(viewModel: viewModel)
         navigationController?.pushViewController(screen)
     }

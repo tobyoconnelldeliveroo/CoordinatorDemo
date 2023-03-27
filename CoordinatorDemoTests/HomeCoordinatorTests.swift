@@ -83,7 +83,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildYellowCoordinator = { _ in
+        screenBuilder.mockBuildYellowCoordinator = { _, _ in
             return mockYellowNavigationController
         }
         
@@ -120,7 +120,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildYellowCoordinator = { close in
+        screenBuilder.mockBuildYellowCoordinator = { _, close in
             closeYellowCoordinator = close
             return mockYellowNavigationController
         }
@@ -133,5 +133,85 @@ final class HomeCoordinatorTests: XCTestCase {
         // Then
         XCTAssertEqual(presentedNavigationController, mockYellowNavigationController)
         XCTAssertEqual(dismissWasAnimated, true)
+    }
+    
+    func testYellowCoordinatorShowGreen_dismissesYellow() {
+        // Given
+        let mockHomeScreen = MockViewControlling()
+        let mockYellowNavigationController = MockViewControlling()
+        var homeViewModel: HomeViewModel?
+        var presentedNavigationController: MockViewControlling?
+        var dismissWasAnimated: Bool?
+        var yellowCoordinatorShowGreen: (() -> Void)?
+        
+        navigationController.mockPush = { _, _ in }
+        
+        mockHomeScreen.mockDismiss = { animated, _ in
+            dismissWasAnimated = animated
+        }
+        
+        mockHomeScreen.mockPresentViewController = { navigationController, _, _ in
+            presentedNavigationController = navigationController
+        }
+        
+        screenBuilder.mockBuildHomeScreen = { viewModel in
+            homeViewModel = viewModel
+            return mockHomeScreen
+        }
+        
+        screenBuilder.mockBuildYellowCoordinator = { showGreen, _ in
+            yellowCoordinatorShowGreen = showGreen
+            return mockYellowNavigationController
+        }
+            
+        // When
+        coordinator.start()
+        homeViewModel?.showYellow()
+        yellowCoordinatorShowGreen?()
+        
+        // Then
+        XCTAssertEqual(presentedNavigationController, mockYellowNavigationController)
+        XCTAssertEqual(dismissWasAnimated, true)
+    }
+    
+    func testYellowCoordinatorShowGreen_buildsGreen() {
+        // Given
+        let mockHomeScreen = MockViewControlling()
+        let mockYellowNavigationController = MockViewControlling()
+        var homeViewModel: HomeViewModel?
+        var yellowCoordinatorShowGreen: (() -> Void)?
+        var homeScreenDismissCompletion: (() -> Void)?
+        var didBuildGreenCoordinator: Bool?
+        
+        navigationController.mockPush = { _, _ in }
+        
+        mockHomeScreen.mockDismiss = { _, completion in
+            homeScreenDismissCompletion = completion
+        }
+        
+        mockHomeScreen.mockPresentViewController = { _, _, _ in }
+        
+        screenBuilder.mockBuildHomeScreen = { viewModel in
+            homeViewModel = viewModel
+            return mockHomeScreen
+        }
+        
+        screenBuilder.mockBuildYellowCoordinator = { showGreen, _ in
+            yellowCoordinatorShowGreen = showGreen
+            return mockYellowNavigationController
+        }
+        
+        screenBuilder.mockBuildGreenCoordinator = { _ in
+            didBuildGreenCoordinator = true
+        }
+            
+        // When
+        coordinator.start()
+        homeViewModel?.showYellow()
+        yellowCoordinatorShowGreen?()
+        homeScreenDismissCompletion?()
+        
+        // Then
+        XCTAssertEqual(didBuildGreenCoordinator, true)
     }
 }
