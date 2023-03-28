@@ -214,4 +214,64 @@ final class HomeCoordinatorTests: XCTestCase {
         // Then
         XCTAssertEqual(didBuildGreenCoordinator, true)
     }
+    
+    func testShowPink_buildsPinkCoordinator() {
+        // Given
+        let mockHomeScreen = MockViewControlling()
+        var homeViewModel: HomeViewModel?
+        var didBuildPinkCoordinator: Bool?
+        
+        navigationController.mockPush = { _, _ in }
+        
+        screenBuilder.mockBuildHomeScreen = { viewModel in
+            homeViewModel = viewModel
+            return mockHomeScreen
+        }
+        
+        screenBuilder.mockBuildPinkCoordinator = { _, _ in
+            didBuildPinkCoordinator = true
+        }
+            
+        // When
+        coordinator.start()
+        homeViewModel?.showPink()
+        
+        // Then
+        XCTAssertEqual(didBuildPinkCoordinator, true)
+    }
+    
+    func testPinkCoordinator_finish_popsToHomeViewController() {
+        // Given
+        let mockHomeScreen = MockViewControlling()
+        var homeViewModel: HomeViewModel?
+        var finishPinkCoordinator: (() -> Void)?
+        var poppedToViewController: MockViewControlling?
+        var popToViewControllerWasAnimated: Bool?
+
+        navigationController.mockPush = { _, _ in }
+        
+        navigationController.mockPopToViewController = { viewController, animated in
+            poppedToViewController = viewController
+            popToViewControllerWasAnimated = animated
+            return nil
+        }
+        
+        screenBuilder.mockBuildHomeScreen = { viewModel in
+            homeViewModel = viewModel
+            return mockHomeScreen
+        }
+        
+        screenBuilder.mockBuildPinkCoordinator = { _, finish in
+            finishPinkCoordinator = finish
+        }
+            
+        // When
+        coordinator.start()
+        homeViewModel?.showPink()
+        finishPinkCoordinator?()
+        
+        // Then
+        XCTAssertEqual(poppedToViewController, mockHomeScreen)
+        XCTAssertEqual(popToViewControllerWasAnimated, true)
+    }
 }

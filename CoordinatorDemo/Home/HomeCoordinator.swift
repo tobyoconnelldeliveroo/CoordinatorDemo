@@ -15,14 +15,27 @@ class HomeCoordinator<
     
     func start() {
         var showYellow: (() -> Void)?
+        var showPink: (() -> Void)?
+
         let viewModel = HomeViewModel(
             showGreen: showGreen,
-            showYellow: { showYellow?() }
+            showYellow: { showYellow?() },
+            showPink: { showPink?() }
         )
+        
         let screen = screenBuilder.buildHomeScreen(viewModel: viewModel)
+        
         showYellow = { [weak screen] in
             self.showYellow(on: screen)
         }
+        
+        showPink = { [weak screen] in
+            guard let screen = screen else { return }
+            self.showPink {
+                self.navigationController?.popToViewController(screen)
+            }
+        }
+        
         navigationController?.pushViewController(screen)
     }
     
@@ -40,5 +53,9 @@ class HomeCoordinator<
     
     private func showGreen() {
         screenBuilder.buildGreenCoordinator(navigationController: navigationController)
+    }
+    
+    private func showPink(finish: @escaping () -> Void) {
+        screenBuilder.buildPinkCoordinator(navigationController: navigationController, finish: finish)
     }
 }
