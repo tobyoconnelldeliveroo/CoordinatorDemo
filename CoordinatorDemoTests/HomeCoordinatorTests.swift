@@ -5,11 +5,14 @@ final class HomeCoordinatorTests: XCTestCase {
     var navigationController: MockNavigationControlling!
     var screenBuilder: MockHomeScreenBuilder!
     var coordinator: HomeCoordinator<MockNavigationControlling, MockViewControlling, MockHomeScreenBuilder>!
+    var logger: MockLogger!
     
     override func setUp() {
         navigationController = .init()
         screenBuilder = .init()
+        logger = .init()
         coordinator = .init(
+            logger: logger,
             navigationController: navigationController,
             screenBuilder: screenBuilder
         )
@@ -83,7 +86,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildYellowCoordinator = { _, _ in
+        screenBuilder.mockBuildYellowCoordinator = { _, _, _ in
             return mockYellowNavigationController
         }
         
@@ -120,7 +123,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildYellowCoordinator = { _, close in
+        screenBuilder.mockBuildYellowCoordinator = { _, _, close in
             closeYellowCoordinator = close
             return mockYellowNavigationController
         }
@@ -159,7 +162,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildYellowCoordinator = { showGreen, _ in
+        screenBuilder.mockBuildYellowCoordinator = { _, showGreen, _ in
             yellowCoordinatorShowGreen = showGreen
             return mockYellowNavigationController
         }
@@ -196,7 +199,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildYellowCoordinator = { showGreen, _ in
+        screenBuilder.mockBuildYellowCoordinator = { _, showGreen, _ in
             yellowCoordinatorShowGreen = showGreen
             return mockYellowNavigationController
         }
@@ -273,5 +276,34 @@ final class HomeCoordinatorTests: XCTestCase {
         // Then
         XCTAssertEqual(poppedToViewController, mockHomeScreen)
         XCTAssertEqual(popToViewControllerWasAnimated, true)
+    }
+    
+    func textHomeCoordinatorLogger_isPassedToYellowCoordinator() {
+        // Given
+        let mockHomeScreen = MockViewControlling()
+        let mockYellowNavigationController = MockViewControlling()
+        var homeViewModel: HomeViewModel?
+        var yellowLogger: Logging?
+        
+        navigationController.mockPush = { _, _ in }
+        
+        mockHomeScreen.mockPresentViewController = { _, _, _ in }
+        
+        screenBuilder.mockBuildHomeScreen = { viewModel in
+            homeViewModel = viewModel
+            return mockHomeScreen
+        }
+        
+        screenBuilder.mockBuildYellowCoordinator = { logger, _, _ in
+            yellowLogger = logger
+            return mockYellowNavigationController
+        }
+        
+        // When
+        coordinator.start()
+        homeViewModel?.showYellow()
+        
+        // Then
+        XCTAssertEqual(yellowLogger as? MockLogger, logger)
     }
 }

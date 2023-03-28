@@ -7,10 +7,12 @@ class HomeCoordinator<
 >: Coordinator {
     private weak var navigationController: NavigationController?
     private let screenBuilder: ScreenBuilder
+    private let logger: Logging
     
-    init(navigationController: NavigationController?, screenBuilder: ScreenBuilder) {
+    init(logger: Logging, navigationController: NavigationController?, screenBuilder: ScreenBuilder) {
         self.navigationController = navigationController
         self.screenBuilder = screenBuilder
+        self.logger = logger
     }
     
     func start() {
@@ -41,6 +43,7 @@ class HomeCoordinator<
     
     private func showYellow(on viewController: ViewController?) {
         let navigationController = screenBuilder.buildYellowCoordinator(
+            logger: logger,
             showGreen: {
                 viewController?.dismiss(animated: true, completion: self.showGreen)
             },

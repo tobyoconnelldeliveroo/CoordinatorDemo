@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F113E26229D308C400601BD4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113E26129D308C400601BD4 /* Logger.swift */; };
+		F113E26429D30B2200601BD4 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113E26329D30B2200601BD4 /* MockLogger.swift */; };
 		F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFB429B8F32A0057C9DA /* AppDelegate.swift */; };
 		F131EFB729B8F32A0057C9DA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFB629B8F32A0057C9DA /* SceneDelegate.swift */; };
 		F131EFB929B8F32A0057C9DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFB829B8F32A0057C9DA /* HomeViewController.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F113E26129D308C400601BD4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		F113E26329D30B2200601BD4 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
 		F131EFB129B8F32A0057C9DA /* CoordinatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F131EFB429B8F32A0057C9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F131EFB629B8F32A0057C9DA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				F131EFBD29B8F32B0057C9DA /* Assets.xcassets */,
 				F131EFBF29B8F32B0057C9DA /* LaunchScreen.storyboard */,
 				F131EFC229B8F32B0057C9DA /* Info.plist */,
+				F1F430A529D2F55600397C13 /* Logging */,
 				F131EFCC29B8FDC20057C9DA /* SharedUI */,
 			);
 			path = CoordinatorDemo;
@@ -234,6 +239,7 @@
 				F1ED54CA29BF8EB400706665 /* MockPushing.swift */,
 				F1ED54CB29BF8EB400706665 /* MockPresenting.swift */,
 				F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */,
+				F113E26329D30B2200601BD4 /* MockLogger.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -247,6 +253,14 @@
 				F1F4309F29D2E9B700397C13 /* PinkCoordinator.swift */,
 			);
 			path = Pink;
+			sourceTree = "<group>";
+		};
+		F1F430A529D2F55600397C13 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				F113E26129D308C400601BD4 /* Logger.swift */,
+			);
+			path = Logging;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +375,7 @@
 				F131EFD029B902EE0057C9DA /* UILabel.swift in Sources */,
 				F1ED54B229BF8CA300706665 /* Pushing.swift in Sources */,
 				F131EFD229B903400057C9DA /* UIButton.swift in Sources */,
+				F113E26229D308C400601BD4 /* Logger.swift in Sources */,
 				F1ED54AD29BF8C6900706665 /* GreenScreenBuilder.swift in Sources */,
 				F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */,
 				F1F4309C29D2E81200397C13 /* PinkViewModel.swift in Sources */,
@@ -390,6 +405,7 @@
 				F1ED54D429BF8EB400706665 /* MockHomeScreenBuilder.swift in Sources */,
 				F1ED54D329BF8EB400706665 /* MockPresenting.swift in Sources */,
 				F1ED54D029BF8EB400706665 /* MockGreenScreenBuilder.swift in Sources */,
+				F113E26429D30B2200601BD4 /* MockLogger.swift in Sources */,
 				F1ED54D629BF8EB400706665 /* HomeCoordinatorTests.swift in Sources */,
 				F1ED54D529BF8EB400706665 /* GreenCoordinatorTests.swift in Sources */,
 				F1ED54CF29BF8EB400706665 /* YellowCoordinatorTests.swift in Sources */,

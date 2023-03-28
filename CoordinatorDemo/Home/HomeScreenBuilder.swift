@@ -6,7 +6,7 @@ protocol HomeScreenBuilding<NavigationController, ViewController> {
     
     func buildHomeScreen(viewModel: HomeViewModel) -> ViewController
     func buildGreenCoordinator(navigationController: NavigationController?)
-    func buildYellowCoordinator(showGreen: @escaping () -> Void, close: @escaping () -> Void) -> ViewController
+    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> ViewController
     func buildPinkCoordinator(navigationController: NavigationController?, finish: @escaping () -> Void)
 }
 
@@ -25,11 +25,12 @@ struct HomeScreenBuilder: HomeScreenBuilding {
         ).start()
     }
     
-    func buildYellowCoordinator(showGreen: @escaping () -> Void, close: @escaping () -> Void) -> ViewController {
+    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> ViewController {
         let navigationController = UINavigationController()
         let coordinator = YellowCoordinator(
             navigationController: navigationController,
             screenBuilder: YellowScreenBuilder(),
+            logger: logger,
             showGreen: showGreen,
             close: close
         )

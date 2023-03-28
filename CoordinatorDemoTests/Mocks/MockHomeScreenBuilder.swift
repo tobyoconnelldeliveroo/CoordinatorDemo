@@ -6,7 +6,7 @@ class MockHomeScreenBuilder: HomeScreenBuilding {
     
     var mockBuildHomeScreen: ((HomeViewModel) -> MockViewControlling)!
     var mockBuildGreenCoordinator: ((MockNavigationControlling?) -> Void)!
-    var mockBuildYellowCoordinator: ((@escaping () -> Void, @escaping () -> Void) -> MockViewControlling)!
+    var mockBuildYellowCoordinator: ((Logging, @escaping () -> Void, @escaping () -> Void) -> MockViewControlling)!
     var mockBuildPinkCoordinator: ((MockNavigationControlling?, @escaping () -> Void) -> Void)!
 
     func buildHomeScreen(viewModel: HomeViewModel) -> MockViewControlling {
@@ -17,8 +17,8 @@ class MockHomeScreenBuilder: HomeScreenBuilding {
         mockBuildGreenCoordinator(navigationController)
     }
     
-    func buildYellowCoordinator(showGreen: @escaping () -> Void, close: @escaping () -> Void) -> MockViewControlling {
-        mockBuildYellowCoordinator(showGreen, close)
+    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> MockViewControlling {
+        mockBuildYellowCoordinator(logger, showGreen, close)
     }
     
     func buildPinkCoordinator(navigationController: MockNavigationControlling?, finish: @escaping () -> Void) {
