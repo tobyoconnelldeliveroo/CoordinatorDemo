@@ -1,12 +1,10 @@
 @testable import CoordinatorDemo
+import UIKit
 
 class MockPinkScreenBuilder: PinkScreenBuilding {
-    typealias NavigationController = MockNavigationControlling
-    typealias ViewController = MockViewControlling
+    var mockBuildPinkScreen: ((PinkViewModel) -> UIViewController)!
     
-    var mockBuildPinkScreen: ((PinkViewModel) -> MockViewControlling)!
-    
-    func buildPinkScreen(viewModel: PinkViewModel) -> ViewController {
+    func buildPinkScreen(viewModel: PinkViewModel) -> UIViewController {
         mockBuildPinkScreen(viewModel)
     }
 }

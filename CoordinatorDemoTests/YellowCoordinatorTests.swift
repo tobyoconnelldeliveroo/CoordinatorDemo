@@ -2,9 +2,9 @@ import XCTest
 @testable import CoordinatorDemo
 
 final class YellowCoordinatorTests: XCTestCase {
-    var navigationController: MockNavigationControlling!
+    var navigationController: SpyNavigationController!
     var screenBuilder: MockYellowScreenBuilder!
-    var coordinator: YellowCoordinator<MockNavigationControlling, MockViewControlling, MockYellowScreenBuilder>!
+    var coordinator: YellowCoordinator!
     var logger: MockLogger!
     var showGreen: (() -> Void)!
     var close: (() -> Void)!
@@ -24,11 +24,11 @@ final class YellowCoordinatorTests: XCTestCase {
     
     func testStart_pushesYellowScreen() {
         // Given
-        let mockYellowScreen = MockViewControlling()
-        var pushedScreen: MockViewControlling?
+        let mockYellowScreen = UIViewController()
+        var pushedScreen: UIViewController?
         var pushWasAnimated: Bool?
         
-        navigationController.mockPush = { viewController, animated in
+        navigationController.mockPushViewController = { viewController, animated in
             pushedScreen = viewController
             pushWasAnimated = animated
         }
@@ -47,13 +47,13 @@ final class YellowCoordinatorTests: XCTestCase {
     
     func testScreenClose_callsCoorinatorClose() {
         // Given
-        let mockYellowScreen = MockViewControlling()
+        let mockYellowScreen = UIViewController()
         var yellowViewModel: YellowViewModel?
         var didCallClose: Bool?
         
         close = { didCallClose = true }
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         screenBuilder.mockBuildYellowScreen = { viewModel in
             yellowViewModel = viewModel
@@ -70,13 +70,13 @@ final class YellowCoordinatorTests: XCTestCase {
     
     func testShowGreen_callsCoordinatorShowGreen() {
         // Given
-        let mockYellowScreen = MockViewControlling()
+        let mockYellowScreen = UIViewController()
         var yellowViewModel: YellowViewModel?
         var didCallShowGreen: Bool?
         
         showGreen = { didCallShowGreen = true }
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         screenBuilder.mockBuildYellowScreen = { viewModel in
             yellowViewModel = viewModel
@@ -94,14 +94,14 @@ final class YellowCoordinatorTests: XCTestCase {
     func testDismiss_logsDismissal() {
         // Given
         var loggedText: String?
-        let mockYellowScreen = MockViewControlling()
+        let mockYellowScreen = UIViewController()
         var yellowViewModel: YellowViewModel?
         
         logger.mockLog = { text in
             loggedText = text
         }
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         screenBuilder.mockBuildYellowScreen = { viewModel in
             yellowViewModel = viewModel

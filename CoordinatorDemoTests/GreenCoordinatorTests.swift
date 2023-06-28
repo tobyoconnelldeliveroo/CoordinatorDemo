@@ -2,9 +2,9 @@ import XCTest
 @testable import CoordinatorDemo
 
 final class GreenCoordinatorTests: XCTestCase {
-    var navigationController: MockNavigationControlling!
+    var navigationController: SpyNavigationController!
     var screenBuilder: MockGreenScreenBuilder!
-    var coordinator: GreenCoordinator<MockNavigationControlling, MockViewControlling, MockGreenScreenBuilder>!
+    var coordinator: GreenCoordinator!
     var close: (() -> Void)!
     
     override func setUp() {
@@ -18,11 +18,11 @@ final class GreenCoordinatorTests: XCTestCase {
     
     func testStart_pushesGreenScreen() {
         // Given
-        let mockGreenScreen = MockViewControlling()
-        var pushedScreen: MockViewControlling?
+        let mockGreenScreen = UIViewController()
+        var pushedScreen: UIViewController?
         var pushWasAnimated: Bool?
         
-        navigationController.mockPush = { viewController, animated in
+        navigationController.mockPushViewController = { viewController, animated in
             pushedScreen = viewController
             pushWasAnimated = animated
         }

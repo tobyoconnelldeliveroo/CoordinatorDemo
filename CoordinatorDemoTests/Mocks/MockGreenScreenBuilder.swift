@@ -1,12 +1,10 @@
 @testable import CoordinatorDemo
+import UIKit
 
 class MockGreenScreenBuilder: GreenScreenBuilding {
-    typealias NavigationController = MockNavigationControlling
-    typealias ViewController = MockViewControlling
+    var mockBuildGreenScreen: ((GreenViewModel) -> UIViewController)!
     
-    var mockBuildGreenScreen: ((GreenViewModel) -> MockViewControlling)!
-    
-    func buildGreenScreen(viewModel: GreenViewModel) -> ViewController {
+    func buildGreenScreen(viewModel: GreenViewModel) -> UIViewController {
         mockBuildGreenScreen(viewModel)
     }
 }

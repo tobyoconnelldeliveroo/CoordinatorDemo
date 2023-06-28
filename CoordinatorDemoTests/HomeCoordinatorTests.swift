@@ -2,9 +2,9 @@ import XCTest
 @testable import CoordinatorDemo
 
 final class HomeCoordinatorTests: XCTestCase {
-    var navigationController: MockNavigationControlling!
+    var navigationController: SpyNavigationController!
     var screenBuilder: MockHomeScreenBuilder!
-    var coordinator: HomeCoordinator<MockNavigationControlling, MockViewControlling, MockHomeScreenBuilder>!
+    var coordinator: HomeCoordinator!
     var logger: MockLogger!
     
     override func setUp() {
@@ -20,11 +20,11 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testStart_pushesHomeScreen() {
         // Given
-        let mockHomeScreen = MockViewControlling()
-        var pushedScreen: MockViewControlling?
+        let mockHomeScreen = UIViewController()
+        var pushedScreen: UIViewController?
         var pushWasAnimated: Bool?
         
-        navigationController.mockPush = { screen, animated in
+        navigationController.mockPushViewController = { screen, animated in
             pushedScreen = screen
             pushWasAnimated = animated
         }
@@ -43,11 +43,11 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testShowGreen_buildsGreenCoordinator() {
         // Given
-        let mockHomeScreen = MockViewControlling()
+        let mockHomeScreen = UIViewController()
         var homeViewModel: HomeViewModel?
         var didBuildGreenCoordinator: Bool?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         screenBuilder.mockBuildHomeScreen = { viewModel in
             homeViewModel = viewModel
@@ -68,15 +68,15 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testShowYellow_buildsYellowCoordinator() {
         // Given
-        let mockHomeScreen = MockViewControlling()
-        let mockYellowNavigationController = MockViewControlling()
+        let mockHomeScreen = SpyViewController()
+        let mockYellowNavigationController = UIViewController()
         var homeViewModel: HomeViewModel?
-        var presentedNavigationController: MockViewControlling?
+        var presentedNavigationController: UIViewController?
         var presentationWasAnimated: Bool?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
-        mockHomeScreen.mockPresentViewController = { navigationController, animated, _ in
+        mockHomeScreen.mockPresent = { navigationController, animated, _ in
             presentedNavigationController = navigationController
             presentationWasAnimated = animated
         }
@@ -101,20 +101,20 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testCloseYellowCoordinator_callsDismiss() {
         // Given
-        let mockHomeScreen = MockViewControlling()
-        let mockYellowNavigationController = MockViewControlling()
+        let mockHomeScreen = SpyViewController()
+        let mockYellowNavigationController = UIViewController()
         var homeViewModel: HomeViewModel?
-        var presentedNavigationController: MockViewControlling?
+        var presentedNavigationController: UIViewController?
         var dismissWasAnimated: Bool?
         var closeYellowCoordinator: (() -> Void)?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         mockHomeScreen.mockDismiss = { animated, _ in
             dismissWasAnimated = animated
         }
         
-        mockHomeScreen.mockPresentViewController = { navigationController, _, _ in
+        mockHomeScreen.mockPresent = { navigationController, _, _ in
             presentedNavigationController = navigationController
         }
         
@@ -140,20 +140,20 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testYellowCoordinatorShowGreen_dismissesYellow() {
         // Given
-        let mockHomeScreen = MockViewControlling()
-        let mockYellowNavigationController = MockViewControlling()
+        let mockHomeScreen = SpyViewController()
+        let mockYellowNavigationController = UIViewController()
         var homeViewModel: HomeViewModel?
-        var presentedNavigationController: MockViewControlling?
+        var presentedNavigationController: UIViewController?
         var dismissWasAnimated: Bool?
         var yellowCoordinatorShowGreen: (() -> Void)?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         mockHomeScreen.mockDismiss = { animated, _ in
             dismissWasAnimated = animated
         }
         
-        mockHomeScreen.mockPresentViewController = { navigationController, _, _ in
+        mockHomeScreen.mockPresent = { navigationController, _, _ in
             presentedNavigationController = navigationController
         }
         
@@ -179,20 +179,20 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testYellowCoordinatorShowGreen_buildsGreen() {
         // Given
-        let mockHomeScreen = MockViewControlling()
-        let mockYellowNavigationController = MockViewControlling()
+        let mockHomeScreen = SpyViewController()
+        let mockYellowNavigationController = UIViewController()
         var homeViewModel: HomeViewModel?
         var yellowCoordinatorShowGreen: (() -> Void)?
         var homeScreenDismissCompletion: (() -> Void)?
         var didBuildGreenCoordinator: Bool?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         mockHomeScreen.mockDismiss = { _, completion in
             homeScreenDismissCompletion = completion
         }
         
-        mockHomeScreen.mockPresentViewController = { _, _, _ in }
+        mockHomeScreen.mockPresent = { _, _, _ in }
         
         screenBuilder.mockBuildHomeScreen = { viewModel in
             homeViewModel = viewModel
@@ -220,11 +220,11 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testShowPink_buildsPinkCoordinator() {
         // Given
-        let mockHomeScreen = MockViewControlling()
+        let mockHomeScreen = UIViewController()
         var homeViewModel: HomeViewModel?
         var didBuildPinkCoordinator: Bool?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         screenBuilder.mockBuildHomeScreen = { viewModel in
             homeViewModel = viewModel
@@ -245,13 +245,13 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func testPinkCoordinator_finish_popsToHomeViewController() {
         // Given
-        let mockHomeScreen = MockViewControlling()
+        let mockHomeScreen = UIViewController()
         var homeViewModel: HomeViewModel?
         var finishPinkCoordinator: (() -> Void)?
-        var poppedToViewController: MockViewControlling?
+        var poppedToViewController: UIViewController?
         var popToViewControllerWasAnimated: Bool?
 
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         navigationController.mockPopToViewController = { viewController, animated in
             poppedToViewController = viewController
@@ -280,14 +280,14 @@ final class HomeCoordinatorTests: XCTestCase {
     
     func textHomeCoordinatorLogger_isPassedToYellowCoordinator() {
         // Given
-        let mockHomeScreen = MockViewControlling()
-        let mockYellowNavigationController = MockViewControlling()
+        let mockHomeScreen = SpyViewController()
+        let mockYellowNavigationController = UIViewController()
         var homeViewModel: HomeViewModel?
         var yellowLogger: Logging?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
-        mockHomeScreen.mockPresentViewController = { _, _, _ in }
+        mockHomeScreen.mockPresent = { _, _, _ in }
         
         screenBuilder.mockBuildHomeScreen = { viewModel in
             homeViewModel = viewModel

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F10CE9AF2A4C382200183DD0 /* Spies.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10CE9AE2A4C382200183DD0 /* Spies.swift */; };
 		F113E26229D308C400601BD4 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113E26129D308C400601BD4 /* Logger.swift */; };
 		F113E26429D30B2200601BD4 /* MockLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113E26329D30B2200601BD4 /* MockLogger.swift */; };
 		F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFB429B8F32A0057C9DA /* AppDelegate.swift */; };
@@ -29,16 +30,11 @@
 		F131EFE629B90BE20057C9DA /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE329B90B650057C9DA /* YellowViewController.swift */; };
 		F131EFE729B90BE40057C9DA /* YellowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F131EFE429B90B650057C9DA /* YellowViewModel.swift */; };
 		F1ED54AD29BF8C6900706665 /* GreenScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54AC29BF8C6900706665 /* GreenScreenBuilder.swift */; };
-		F1ED54B229BF8CA300706665 /* Pushing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54AF29BF8CA300706665 /* Pushing.swift */; };
-		F1ED54B329BF8CA300706665 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B029BF8CA300706665 /* Extensions.swift */; };
-		F1ED54B429BF8CA300706665 /* Presenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B129BF8CA300706665 /* Presenting.swift */; };
 		F1ED54B629BF8CC500706665 /* HomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */; };
 		F1ED54B829BF8D1900706665 /* YellowScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */; };
 		F1ED54CF29BF8EB400706665 /* YellowCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54C629BF8EB400706665 /* YellowCoordinatorTests.swift */; };
 		F1ED54D029BF8EB400706665 /* MockGreenScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54C829BF8EB400706665 /* MockGreenScreenBuilder.swift */; };
 		F1ED54D129BF8EB400706665 /* MockYellowScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54C929BF8EB400706665 /* MockYellowScreenBuilder.swift */; };
-		F1ED54D229BF8EB400706665 /* MockPushing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CA29BF8EB400706665 /* MockPushing.swift */; };
-		F1ED54D329BF8EB400706665 /* MockPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CB29BF8EB400706665 /* MockPresenting.swift */; };
 		F1ED54D429BF8EB400706665 /* MockHomeScreenBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */; };
 		F1ED54D529BF8EB400706665 /* GreenCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CD29BF8EB400706665 /* GreenCoordinatorTests.swift */; };
 		F1ED54D629BF8EB400706665 /* HomeCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1ED54CE29BF8EB400706665 /* HomeCoordinatorTests.swift */; };
@@ -61,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F10CE9AE2A4C382200183DD0 /* Spies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spies.swift; sourceTree = "<group>"; };
 		F113E26129D308C400601BD4 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		F113E26329D30B2200601BD4 /* MockLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLogger.swift; sourceTree = "<group>"; };
 		F131EFB129B8F32A0057C9DA /* CoordinatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoordinatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,17 +82,12 @@
 		F131EFE329B90B650057C9DA /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		F131EFE429B90B650057C9DA /* YellowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewModel.swift; sourceTree = "<group>"; };
 		F1ED54AC29BF8C6900706665 /* GreenScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenScreenBuilder.swift; sourceTree = "<group>"; };
-		F1ED54AF29BF8CA300706665 /* Pushing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pushing.swift; sourceTree = "<group>"; };
-		F1ED54B029BF8CA300706665 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		F1ED54B129BF8CA300706665 /* Presenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Presenting.swift; sourceTree = "<group>"; };
 		F1ED54B529BF8CC500706665 /* HomeScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenBuilder.swift; sourceTree = "<group>"; };
 		F1ED54B729BF8D1900706665 /* YellowScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowScreenBuilder.swift; sourceTree = "<group>"; };
 		F1ED54BD29BF8E9A00706665 /* CoordinatorDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoordinatorDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1ED54C629BF8EB400706665 /* YellowCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowCoordinatorTests.swift; sourceTree = "<group>"; };
 		F1ED54C829BF8EB400706665 /* MockGreenScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockGreenScreenBuilder.swift; sourceTree = "<group>"; };
 		F1ED54C929BF8EB400706665 /* MockYellowScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockYellowScreenBuilder.swift; sourceTree = "<group>"; };
-		F1ED54CA29BF8EB400706665 /* MockPushing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPushing.swift; sourceTree = "<group>"; };
-		F1ED54CB29BF8EB400706665 /* MockPresenting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPresenting.swift; sourceTree = "<group>"; };
 		F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHomeScreenBuilder.swift; sourceTree = "<group>"; };
 		F1ED54CD29BF8EB400706665 /* GreenCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GreenCoordinatorTests.swift; sourceTree = "<group>"; };
 		F1ED54CE29BF8EB400706665 /* HomeCoordinatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCoordinatorTests.swift; sourceTree = "<group>"; };
@@ -146,7 +138,6 @@
 		F131EFB329B8F32A0057C9DA /* CoordinatorDemo */ = {
 			isa = PBXGroup;
 			children = (
-				F1ED54AE29BF8CA300706665 /* Navigation  */,
 				F131EFD629B9074E0057C9DA /* Coordinator.swift */,
 				F131EFB429B8F32A0057C9DA /* AppDelegate.swift */,
 				F131EFB629B8F32A0057C9DA /* SceneDelegate.swift */,
@@ -208,16 +199,6 @@
 			path = Yellow;
 			sourceTree = "<group>";
 		};
-		F1ED54AE29BF8CA300706665 /* Navigation  */ = {
-			isa = PBXGroup;
-			children = (
-				F1ED54AF29BF8CA300706665 /* Pushing.swift */,
-				F1ED54B029BF8CA300706665 /* Extensions.swift */,
-				F1ED54B129BF8CA300706665 /* Presenting.swift */,
-			);
-			path = "Navigation ";
-			sourceTree = "<group>";
-		};
 		F1ED54BE29BF8E9A00706665 /* CoordinatorDemoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,10 +217,9 @@
 				F1ED54C829BF8EB400706665 /* MockGreenScreenBuilder.swift */,
 				F1ED54C929BF8EB400706665 /* MockYellowScreenBuilder.swift */,
 				F1F430A329D2F17100397C13 /* MockPinkScreenBuilder.swift */,
-				F1ED54CA29BF8EB400706665 /* MockPushing.swift */,
-				F1ED54CB29BF8EB400706665 /* MockPresenting.swift */,
 				F1ED54CC29BF8EB400706665 /* MockHomeScreenBuilder.swift */,
 				F113E26329D30B2200601BD4 /* MockLogger.swift */,
+				F10CE9AE2A4C382200183DD0 /* Spies.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -373,18 +353,15 @@
 				F131EFD729B9074E0057C9DA /* Coordinator.swift in Sources */,
 				F131EFD529B907320057C9DA /* HomeCoordinator.swift in Sources */,
 				F131EFD029B902EE0057C9DA /* UILabel.swift in Sources */,
-				F1ED54B229BF8CA300706665 /* Pushing.swift in Sources */,
 				F131EFD229B903400057C9DA /* UIButton.swift in Sources */,
 				F113E26229D308C400601BD4 /* Logger.swift in Sources */,
 				F1ED54AD29BF8C6900706665 /* GreenScreenBuilder.swift in Sources */,
 				F131EFB529B8F32A0057C9DA /* AppDelegate.swift in Sources */,
 				F1F4309C29D2E81200397C13 /* PinkViewModel.swift in Sources */,
 				F131EFDE29B90A840057C9DA /* GreenCoordinator.swift in Sources */,
-				F1ED54B429BF8CA300706665 /* Presenting.swift in Sources */,
 				F131EFB729B8F32A0057C9DA /* SceneDelegate.swift in Sources */,
 				F131EFDC29B909840057C9DA /* GreenViewController.swift in Sources */,
 				F1F4309E29D2E8B500397C13 /* PinkScreenBuilder.swift in Sources */,
-				F1ED54B329BF8CA300706665 /* Extensions.swift in Sources */,
 				F1ED54B829BF8D1900706665 /* YellowScreenBuilder.swift in Sources */,
 				F131EFE029B90AA90057C9DA /* GreenViewModel.swift in Sources */,
 				F1ED54B629BF8CC500706665 /* HomeScreenBuilder.swift in Sources */,
@@ -399,11 +376,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1ED54D229BF8EB400706665 /* MockPushing.swift in Sources */,
 				F1F430A229D2F14F00397C13 /* PinkCoordinatorTests.swift in Sources */,
 				F1ED54D129BF8EB400706665 /* MockYellowScreenBuilder.swift in Sources */,
 				F1ED54D429BF8EB400706665 /* MockHomeScreenBuilder.swift in Sources */,
-				F1ED54D329BF8EB400706665 /* MockPresenting.swift in Sources */,
+				F10CE9AF2A4C382200183DD0 /* Spies.swift in Sources */,
 				F1ED54D029BF8EB400706665 /* MockGreenScreenBuilder.swift in Sources */,
 				F113E26429D30B2200601BD4 /* MockLogger.swift in Sources */,
 				F1ED54D629BF8EB400706665 /* HomeCoordinatorTests.swift in Sources */,

@@ -1,19 +1,15 @@
 import UIKit
 
-class YellowCoordinator<
-    NavigationController: AnyObject & NavigationControlling<ViewController>,
-    ViewController: AnyObject & ViewControlling<ViewController>,
-    ScreenBuilder: YellowScreenBuilding<ViewController>
->: Coordinator {
-    private weak var navigationController: NavigationController?
-    private let screenBuilder: ScreenBuilder
+class YellowCoordinator: Coordinator {
+    private weak var navigationController: UINavigationController?
+    private let screenBuilder: YellowScreenBuilding
     private let logger: Logging
     private let close: () -> Void
     private let showGreen: () -> Void
 
     init(
-        navigationController: NavigationController?,
-        screenBuilder: ScreenBuilder,
+        navigationController: UINavigationController?,
+        screenBuilder: YellowScreenBuilding,
         logger: Logging,
         showGreen: @escaping () -> Void,
         close: @escaping () -> Void
@@ -28,6 +24,6 @@ class YellowCoordinator<
     func start() {
         let viewModel = YellowViewModel(logger: logger, showGreen: showGreen, close: close)
         let screen = screenBuilder.buildYellowScreen(viewModel: viewModel)
-        navigationController?.pushViewController(screen)
+        navigationController?.pushViewController(screen, animated: true)
     }
 }

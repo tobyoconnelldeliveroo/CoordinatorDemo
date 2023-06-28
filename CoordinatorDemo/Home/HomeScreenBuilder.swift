@@ -1,19 +1,13 @@
 import UIKit
 
-protocol HomeScreenBuilding<NavigationController, ViewController> {
-    associatedtype NavigationController: NavigationControlling
-    associatedtype ViewController: ViewControlling
-    
-    func buildHomeScreen(viewModel: HomeViewModel) -> ViewController
-    func buildGreenCoordinator(navigationController: NavigationController?)
-    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> ViewController
-    func buildPinkCoordinator(navigationController: NavigationController?, finish: @escaping () -> Void)
+protocol HomeScreenBuilding {
+    func buildHomeScreen(viewModel: HomeViewModel) -> UIViewController
+    func buildGreenCoordinator(navigationController: UINavigationController?)
+    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> UIViewController
+    func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void)
 }
 
 struct HomeScreenBuilder: HomeScreenBuilding {
-    typealias NavigationController = UINavigationController
-    typealias ViewController = UIViewController
-    
     func buildHomeScreen(viewModel: HomeViewModel) -> UIViewController {
         HomeViewController(viewModel: viewModel)
     }
@@ -25,7 +19,7 @@ struct HomeScreenBuilder: HomeScreenBuilding {
         ).start()
     }
     
-    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> ViewController {
+    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> UIViewController {
         let navigationController = UINavigationController()
         let coordinator = YellowCoordinator(
             navigationController: navigationController,
@@ -38,7 +32,7 @@ struct HomeScreenBuilder: HomeScreenBuilding {
         return navigationController
     }
     
-    func buildPinkCoordinator(navigationController: NavigationController?, finish: @escaping () -> Void) {
+    func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void) {
         PinkCoordinator(
             navigationController: navigationController,
             screenBuilder: PinkScreenBuilder(),

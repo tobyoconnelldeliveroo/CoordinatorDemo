@@ -2,9 +2,9 @@ import XCTest
 @testable import CoordinatorDemo
 
 final class PinkCoordinatorTests: XCTestCase {
-    var navigationController: MockNavigationControlling!
+    var navigationController: SpyNavigationController!
     var screenBuilder: MockPinkScreenBuilder!
-    var coordinator: PinkCoordinator<MockNavigationControlling, MockViewControlling, MockPinkScreenBuilder>!
+    var coordinator: PinkCoordinator!
     var finish: (() -> Void)!
     
     override func setUp() {
@@ -19,12 +19,12 @@ final class PinkCoordinatorTests: XCTestCase {
     
     func testStart_pushesFirstPinkScreen() {
         // Given
-        let mockPinkScreen = MockViewControlling()
-        var pushedScreen: MockViewControlling?
+        let mockPinkScreen = UIViewController()
+        var pushedScreen: UIViewController?
         var pushWasAnimated: Bool?
         var pinkViewModel: PinkViewModel?
         
-        navigationController.mockPush = { viewController, animated in
+        navigationController.mockPushViewController = { viewController, animated in
             pushedScreen = viewController
             pushWasAnimated = animated
         }
@@ -45,12 +45,12 @@ final class PinkCoordinatorTests: XCTestCase {
     
     func testFirstPinkScreenContinue_pushesSecondPinkScreen() {
         // Given
-        let mockPinkScreen = MockViewControlling()
-        var pushedScreen: MockViewControlling?
+        let mockPinkScreen = UIViewController()
+        var pushedScreen: UIViewController?
         var pushWasAnimated: Bool?
         var pinkViewModel: PinkViewModel?
         
-        navigationController.mockPush = { viewController, animated in
+        navigationController.mockPushViewController = { viewController, animated in
             pushedScreen = viewController
             pushWasAnimated = animated
         }
@@ -72,12 +72,12 @@ final class PinkCoordinatorTests: XCTestCase {
     
     func testSecondPinkScreenContinue_pushesThirdPinkScreen() {
         // Given
-        let mockPinkScreen = MockViewControlling()
-        var pushedScreen: MockViewControlling?
+        let mockPinkScreen = UIViewController()
+        var pushedScreen: UIViewController?
         var pushWasAnimated: Bool?
         var pinkViewModel: PinkViewModel?
         
-        navigationController.mockPush = { viewController, animated in
+        navigationController.mockPushViewController = { viewController, animated in
             pushedScreen = viewController
             pushWasAnimated = animated
         }
@@ -100,11 +100,11 @@ final class PinkCoordinatorTests: XCTestCase {
     
     func testThirdPinkScreenContinue_finishesCoordinator() {
         // Given
-        let mockPinkScreen = MockViewControlling()
+        let mockPinkScreen = UIViewController()
         var pinkViewModel: PinkViewModel?
         var coordinatorDidComplete: Bool?
         
-        navigationController.mockPush = { _, _ in }
+        navigationController.mockPushViewController = { _, _ in }
         
         screenBuilder.mockBuildPinkScreen = { viewModel in
             pinkViewModel = viewModel

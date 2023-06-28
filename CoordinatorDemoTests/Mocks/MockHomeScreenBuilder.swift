@@ -1,27 +1,25 @@
 @testable import CoordinatorDemo
+import UIKit
 
 class MockHomeScreenBuilder: HomeScreenBuilding {
-    typealias NavigationController = MockNavigationControlling
-    typealias ViewController = MockViewControlling
-    
-    var mockBuildHomeScreen: ((HomeViewModel) -> MockViewControlling)!
-    var mockBuildGreenCoordinator: ((MockNavigationControlling?) -> Void)!
-    var mockBuildYellowCoordinator: ((Logging, @escaping () -> Void, @escaping () -> Void) -> MockViewControlling)!
-    var mockBuildPinkCoordinator: ((MockNavigationControlling?, @escaping () -> Void) -> Void)!
+    var mockBuildHomeScreen: ((HomeViewModel) -> UIViewController)!
+    var mockBuildGreenCoordinator: ((UINavigationController?) -> Void)!
+    var mockBuildYellowCoordinator: ((Logging, @escaping () -> Void, @escaping () -> Void) -> UIViewController)!
+    var mockBuildPinkCoordinator: ((UINavigationController?, @escaping () -> Void) -> Void)!
 
-    func buildHomeScreen(viewModel: HomeViewModel) -> MockViewControlling {
+    func buildHomeScreen(viewModel: HomeViewModel) -> UIViewController {
         mockBuildHomeScreen(viewModel)
     }
     
-    func buildGreenCoordinator(navigationController: MockNavigationControlling?) {
+    func buildGreenCoordinator(navigationController: UINavigationController?) {
         mockBuildGreenCoordinator(navigationController)
     }
     
-    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> MockViewControlling {
+    func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> UIViewController {
         mockBuildYellowCoordinator(logger, showGreen, close)
     }
     
-    func buildPinkCoordinator(navigationController: MockNavigationControlling?, finish: @escaping () -> Void) {
+    func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void) {
         mockBuildPinkCoordinator(navigationController, finish)
     }
 }

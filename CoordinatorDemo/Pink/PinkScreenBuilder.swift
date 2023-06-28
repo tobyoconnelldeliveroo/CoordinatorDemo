@@ -1,15 +1,11 @@
 import UIKit
 
-protocol PinkScreenBuilding<ViewController> {
-    associatedtype ViewController: ViewControlling
-    
-    func buildPinkScreen(viewModel: PinkViewModel) -> ViewController
+protocol PinkScreenBuilding {
+    func buildPinkScreen(viewModel: PinkViewModel) -> UIViewController
 }
 
 struct PinkScreenBuilder: PinkScreenBuilding {
-    typealias ViewController = UIViewController
-
-    func buildPinkScreen(viewModel: PinkViewModel) -> ViewController {
+    func buildPinkScreen(viewModel: PinkViewModel) -> UIViewController {
         PinkViewController(viewModel: viewModel)
     }
 }

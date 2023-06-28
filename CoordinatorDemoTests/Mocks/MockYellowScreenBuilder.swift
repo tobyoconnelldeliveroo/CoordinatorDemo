@@ -1,12 +1,10 @@
 @testable import CoordinatorDemo
+import UIKit
 
 class MockYellowScreenBuilder: YellowScreenBuilding {
-    typealias NavigationController = MockNavigationControlling
-    typealias ViewController = MockViewControlling
+    var mockBuildYellowScreen: ((YellowViewModel) -> UIViewController)!
     
-    var mockBuildYellowScreen: ((YellowViewModel) -> MockViewControlling)!
-    
-    func buildYellowScreen(viewModel: YellowViewModel) -> ViewController {
+    func buildYellowScreen(viewModel: YellowViewModel) -> UIViewController {
         mockBuildYellowScreen(viewModel)
     }
 }

@@ -1,15 +1,11 @@
 import UIKit
 
-class HomeCoordinator<
-    NavigationController: AnyObject & NavigationControlling<ViewController>,
-    ViewController: AnyObject & ViewControlling<ViewController>,
-    ScreenBuilder: HomeScreenBuilding<NavigationController, ViewController>
->: Coordinator {
-    private weak var navigationController: NavigationController?
-    private let screenBuilder: ScreenBuilder
+class HomeCoordinator: Coordinator {
+    private weak var navigationController: UINavigationController?
+    private let screenBuilder: HomeScreenBuilding
     private let logger: Logging
     
-    init(logger: Logging, navigationController: NavigationController?, screenBuilder: ScreenBuilder) {
+    init(logger: Logging, navigationController: UINavigationController?, screenBuilder: HomeScreenBuilding) {
         self.navigationController = navigationController
         self.screenBuilder = screenBuilder
         self.logger = logger
@@ -34,14 +30,14 @@ class HomeCoordinator<
         showPink = { [weak screen] in
             guard let screen = screen else { return }
             self.showPink {
-                self.navigationController?.popToViewController(screen)
+                self.navigationController?.popToViewController(screen, animated: true)
             }
         }
         
-        navigationController?.pushViewController(screen)
+        navigationController?.pushViewController(screen, animated: true)
     }
     
-    private func showYellow(on viewController: ViewController?) {
+    private func showYellow(on viewController: UIViewController?) {
         let navigationController = screenBuilder.buildYellowCoordinator(
             logger: logger,
             showGreen: {
