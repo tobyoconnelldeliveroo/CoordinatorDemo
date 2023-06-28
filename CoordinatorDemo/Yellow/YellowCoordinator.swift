@@ -1,6 +1,6 @@
 import UIKit
 
-class YellowCoordinator: Coordinator {
+class YellowCoordinator {
     private weak var navigationController: UINavigationController?
     private let screenBuilder: YellowScreenBuilding
     private let logger: Logging

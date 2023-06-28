@@ -1,7 +1,7 @@
 import UIKit
 
 
-class GreenCoordinator: Coordinator {
+class GreenCoordinator {
     private weak var navigationController: UINavigationController?
     private let screenBuilder: GreenScreenBuilding
     private let logger: Logging
