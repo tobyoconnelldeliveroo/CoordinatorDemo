@@ -1,3 +1,3 @@
 struct GreenViewModel {
-    init() {}
+    var showYellow: () -> Void
 }

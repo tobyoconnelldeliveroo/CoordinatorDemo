@@ -2,7 +2,7 @@ import UIKit
 
 protocol HomeScreenBuilding {
     func buildHomeScreen(viewModel: HomeViewModel) -> UIViewController
-    func buildGreenCoordinator(navigationController: UINavigationController?)
+    func buildGreenCoordinator(navigationController: UINavigationController?, showYellow: @escaping () -> Void)
     func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> UIViewController
     func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void)
 }
@@ -12,10 +12,11 @@ struct HomeScreenBuilder: HomeScreenBuilding {
         HomeViewController(viewModel: viewModel)
     }
     
-    func buildGreenCoordinator(navigationController: UINavigationController?) {
+    func buildGreenCoordinator(navigationController: UINavigationController?, showYellow: @escaping () -> Void) {
         GreenCoordinator(
             navigationController: navigationController,
-            screenBuilder: GreenScreenBuilder()
+            screenBuilder: GreenScreenBuilder(),
+            showYellow: showYellow
         ).start()
     }
     

@@ -8,7 +8,8 @@ class GreenViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         title = "Green"
         let content = UILabel.body(text: "This screen is controlled by GreenCoordinator")
-        view = BasicView(backgroundColor: .systemGreen, scrollingContent: [content])
+        let showYellowButton = UIButton.primary(text: "Show Yellow", action: viewModel.showYellow)
+        view = BasicView(backgroundColor: .systemGreen, scrollingContent: [content], footerContent: [showYellowButton])
     }
     
     required init?(coder: NSCoder) {

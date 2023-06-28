@@ -14,6 +14,10 @@ class HomeCoordinator: Coordinator {
     func start() {
         var showYellow: (() -> Void)?
         var showPink: (() -> Void)?
+        
+        let showGreen = {
+            self.showGreen(showYellow: { showYellow?() })
+        }
 
         let viewModel = HomeViewModel(
             showGreen: showGreen,
@@ -21,27 +25,27 @@ class HomeCoordinator: Coordinator {
             showPink: { showPink?() }
         )
         
-        let screen = screenBuilder.buildHomeScreen(viewModel: viewModel)
+        let viewController = screenBuilder.buildHomeScreen(viewModel: viewModel)
         
-        showYellow = { [weak screen] in
-            self.showYellow(on: screen)
+        showYellow = { [weak viewController] in
+            self.showYellow(on: viewController, showGreen: showGreen)
         }
         
-        showPink = { [weak screen] in
-            guard let screen = screen else { return }
+        showPink = { [weak viewController] in
+            guard let viewController = viewController else { return }
             self.showPink {
-                self.navigationController?.popToViewController(screen, animated: true)
+                self.navigationController?.popToViewController(viewController, animated: true)
             }
         }
         
-        navigationController?.pushViewController(screen, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func showYellow(on viewController: UIViewController?) {
+    private func showYellow(on viewController: UIViewController?, showGreen: @escaping () -> Void) {
         let navigationController = screenBuilder.buildYellowCoordinator(
             logger: logger,
-            showGreen: {
-                viewController?.dismiss(animated: true, completion: self.showGreen)
+            showGreen: { [weak viewController] in
+                viewController?.dismiss(animated: true, completion: showGreen)
             },
             close: { [weak viewController] in
                 viewController?.dismiss(animated: true)
@@ -50,8 +54,16 @@ class HomeCoordinator: Coordinator {
         viewController?.present(navigationController, animated: true)
     }
     
-    private func showGreen() {
-        screenBuilder.buildGreenCoordinator(navigationController: navigationController)
+    private func showGreen(showYellow: @escaping () -> Void) {
+        screenBuilder.buildGreenCoordinator(
+            navigationController: navigationController,
+            showYellow: {
+                self.navigationController?.popViewController(animated: true)
+                self.navigationController?.transitionCoordinator?.animate(alongsideTransition: nil) { _ in
+                    showYellow()
+                }
+            }
+        )
     }
     
     private func showPink(finish: @escaping () -> Void) {

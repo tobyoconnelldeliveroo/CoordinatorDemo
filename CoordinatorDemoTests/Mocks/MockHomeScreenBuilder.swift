@@ -3,7 +3,7 @@ import UIKit
 
 class MockHomeScreenBuilder: HomeScreenBuilding {
     var mockBuildHomeScreen: ((HomeViewModel) -> UIViewController)!
-    var mockBuildGreenCoordinator: ((UINavigationController?) -> Void)!
+    var mockBuildGreenCoordinator: ((UINavigationController?, @escaping () -> Void) -> Void)!
     var mockBuildYellowCoordinator: ((Logging, @escaping () -> Void, @escaping () -> Void) -> UIViewController)!
     var mockBuildPinkCoordinator: ((UINavigationController?, @escaping () -> Void) -> Void)!
 
@@ -11,8 +11,8 @@ class MockHomeScreenBuilder: HomeScreenBuilding {
         mockBuildHomeScreen(viewModel)
     }
     
-    func buildGreenCoordinator(navigationController: UINavigationController?) {
-        mockBuildGreenCoordinator(navigationController)
+    func buildGreenCoordinator(navigationController: UINavigationController?, showYellow: @escaping () -> Void) {
+        mockBuildGreenCoordinator(navigationController, showYellow)
     }
     
     func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> UIViewController {

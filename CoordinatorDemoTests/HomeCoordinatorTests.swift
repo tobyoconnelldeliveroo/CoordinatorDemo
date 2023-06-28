@@ -54,7 +54,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockHomeScreen
         }
         
-        screenBuilder.mockBuildGreenCoordinator = { _ in
+        screenBuilder.mockBuildGreenCoordinator = { _, _ in
             didBuildGreenCoordinator = true
         }
             
@@ -204,7 +204,7 @@ final class HomeCoordinatorTests: XCTestCase {
             return mockYellowNavigationController
         }
         
-        screenBuilder.mockBuildGreenCoordinator = { _ in
+        screenBuilder.mockBuildGreenCoordinator = { _, _ in
             didBuildGreenCoordinator = true
         }
             
@@ -216,6 +216,47 @@ final class HomeCoordinatorTests: XCTestCase {
         
         // Then
         XCTAssertEqual(didBuildGreenCoordinator, true)
+    }
+    
+    func testGreenCoordinatorShowYellow_buildsYellow() {
+        // Given
+        let mockHomeScreen = SpyViewController()
+        let mockYellowViewController = UIViewController()
+        var homeViewModel: HomeViewModel?
+        var greenCoordinatorShowYellow: (() -> Void)?
+        var homeScreenDismissCompletion: (() -> Void)?
+        var didBuildYellowCoordinator: Bool?
+        
+        navigationController.mockPushViewController = { _, _ in }
+        
+        mockHomeScreen.mockDismiss = { _, completion in
+            homeScreenDismissCompletion = completion
+        }
+        
+        mockHomeScreen.mockPresent = { _, _, _ in }
+        
+        screenBuilder.mockBuildHomeScreen = { viewModel in
+            homeViewModel = viewModel
+            return mockHomeScreen
+        }
+        
+        screenBuilder.mockBuildGreenCoordinator = { _, showYellow in
+            greenCoordinatorShowYellow = showYellow
+        }
+                
+        screenBuilder.mockBuildYellowCoordinator = { _, _, _ in
+            didBuildYellowCoordinator = true
+            return mockYellowViewController
+        }
+            
+        // When
+        coordinator.start()
+        homeViewModel?.showGreen()
+        greenCoordinatorShowYellow?()
+        homeScreenDismissCompletion?()
+        
+        // Then
+        XCTAssertEqual(didBuildYellowCoordinator, true)
     }
     
     func testShowPink_buildsPinkCoordinator() {
