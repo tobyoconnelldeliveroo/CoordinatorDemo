@@ -1,6 +1,6 @@
 import UIKit
 
-class HomeCoordinator: Coordinator {
+class HomeCoordinator {
     private weak var navigationController: UINavigationController?
     private let screenBuilder: HomeScreenBuilding
     private let logger: Logging

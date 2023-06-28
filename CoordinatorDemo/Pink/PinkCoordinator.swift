@@ -1,7 +1,7 @@
 import UIKit
 
 
-class PinkCoordinator: Coordinator {
+class PinkCoordinator {
     private weak var navigationController: UINavigationController?
     private let screenBuilder: PinkScreenBuilding
     private let logger: Logging
