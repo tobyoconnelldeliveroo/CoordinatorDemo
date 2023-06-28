@@ -11,7 +11,7 @@ class MockHomeScreenBuilder: HomeScreenBuilding {
         mockBuildHomeScreen(viewModel)
     }
     
-    func buildGreenCoordinator(navigationController: UINavigationController?, showYellow: @escaping () -> Void) {
+    func buildGreenCoordinator(navigationController: UINavigationController?, logger: Logging, showYellow: @escaping () -> Void) {
         mockBuildGreenCoordinator(navigationController, showYellow)
     }
     
@@ -19,7 +19,7 @@ class MockHomeScreenBuilder: HomeScreenBuilding {
         mockBuildYellowCoordinator(logger, showGreen, close)
     }
     
-    func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void) {
+    func buildPinkCoordinator(navigationController: UINavigationController?, logger: Logging, finish: @escaping () -> Void) {
         mockBuildPinkCoordinator(navigationController, finish)
     }
 }

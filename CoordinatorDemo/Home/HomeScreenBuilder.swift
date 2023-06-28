@@ -2,9 +2,9 @@ import UIKit
 
 protocol HomeScreenBuilding {
     func buildHomeScreen(viewModel: HomeViewModel) -> UIViewController
-    func buildGreenCoordinator(navigationController: UINavigationController?, showYellow: @escaping () -> Void)
+    func buildGreenCoordinator(navigationController: UINavigationController?, logger: Logging, showYellow: @escaping () -> Void)
     func buildYellowCoordinator(logger: Logging, showGreen: @escaping () -> Void, close: @escaping () -> Void) -> UIViewController
-    func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void)
+    func buildPinkCoordinator(navigationController: UINavigationController?, logger: Logging, finish: @escaping () -> Void)
 }
 
 struct HomeScreenBuilder: HomeScreenBuilding {
@@ -12,10 +12,11 @@ struct HomeScreenBuilder: HomeScreenBuilding {
         HomeViewController(viewModel: viewModel)
     }
     
-    func buildGreenCoordinator(navigationController: UINavigationController?, showYellow: @escaping () -> Void) {
+    func buildGreenCoordinator(navigationController: UINavigationController?, logger: Logging, showYellow: @escaping () -> Void) {
         GreenCoordinator(
             navigationController: navigationController,
             screenBuilder: GreenScreenBuilder(),
+            logger: logger,
             showYellow: showYellow
         ).start()
     }
@@ -33,10 +34,11 @@ struct HomeScreenBuilder: HomeScreenBuilding {
         return navigationController
     }
     
-    func buildPinkCoordinator(navigationController: UINavigationController?, finish: @escaping () -> Void) {
+    func buildPinkCoordinator(navigationController: UINavigationController?, logger: Logging, finish: @escaping () -> Void) {
         PinkCoordinator(
             navigationController: navigationController,
             screenBuilder: PinkScreenBuilder(),
+            logger: logger,
             finish: finish
         ).start()
     }

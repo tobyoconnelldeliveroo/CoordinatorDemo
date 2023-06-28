@@ -57,6 +57,7 @@ class HomeCoordinator: Coordinator {
     private func showGreen(showYellow: @escaping () -> Void) {
         screenBuilder.buildGreenCoordinator(
             navigationController: navigationController,
+            logger: logger,
             showYellow: {
                 self.navigationController?.popViewController(animated: true)
                 self.navigationController?.transitionCoordinator?.animate(alongsideTransition: nil) { _ in
@@ -67,6 +68,6 @@ class HomeCoordinator: Coordinator {
     }
     
     private func showPink(finish: @escaping () -> Void) {
-        screenBuilder.buildPinkCoordinator(navigationController: navigationController, finish: finish)
+        screenBuilder.buildPinkCoordinator(navigationController: navigationController, logger: logger, finish: finish)
     }
 }
